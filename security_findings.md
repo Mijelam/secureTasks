@@ -12,3 +12,8 @@ The view that handles POST requests to create new tasks uses the `@csrf_exempt` 
 
 **Pending fix:** Remove `@csrf_exempt` and include `{% csrf_token %}` in the form template.
 
+
+
+
+
+
