@@ -9,4 +9,5 @@ def create_task(request):
         if descripcion:
             Tarea.objects.create(descripcion=descripcion)
             return redirect('/create/')  
-    return render(request, 'tasks/create_task.html')
+    tareas = Tarea.objects.all().order_by("creada_en")
+    return render(request, 'tasks/create_task.html',{"tareas": tareas})

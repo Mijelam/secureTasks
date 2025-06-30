@@ -1,18 +1,40 @@
 {% extends "tasks/base.html" %}
 
-{% block title %}Add Task{% endblock %}
+{% block title %}Create Task – SecureTasks{% endblock %}
 
 {% block content %}
-<div class="card">
-  <div class="card-body">
-    <h3 class="card-title">Add a New Task</h3>
-    <form method="POST">
-  <div class="mb-3">
-    <label for="descripcion" class="form-label">Task Description</label>
-    <input type="text" class="form-control" id="descripcion" name="descripcion" required>
-  </div>
-  <button type="submit" class="btn btn-primary">Create</button>
-</form>
-  </div>
+<div class="text-center mb-4">
+    <h1 class="text-primary fw-bold">Super Duper Task  Management</h1>
+    <p class="text-muted">Secure Task Management Prototype</p>
+</div>
+
+<div class="card shadow-sm mx-auto" style="max-width: 600px;">
+    <div class="card-body">
+        <form action="{% url 'create_task' %}" method="POST">
+            <!-- CSRF intentionally omitted to simulate vulnerability -->
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Task Description</label>
+                <input
+                    type="text"
+                    id="descriction"
+                    name="descripcion"
+                    class="form-control"
+                    placeholder="Write your task..."
+                    required
+                >
+            </div>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Add Task</button>
+            </div>
+        </form>
+        <ul>
+            {% for tarea in tareas %}
+          <li>{{ tarea.descripcion }}</li>
+                {% empty %}
+          <li>No hay tareas aún</li>
+              {% endfor %}
+          </ul>
+    </div>
 </div>
 {% endblock %}
+
