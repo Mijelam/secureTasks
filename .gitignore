@@ -1,0 +1,17 @@
+# Entorno virtual
+env/
+
+# Archivos temporales de Python
+__pycache__/
+*.py[cod]
+
+# Base de datos local (si usas SQLite)
+db.sqlite3
+
+# Archivos de configuración del editor
+.vscode/
+*.code-workspace
+
+# Archivos de migración si no los quieres versionar aún
+**/migrations/*.py
+!**/migrations/__init__.py
